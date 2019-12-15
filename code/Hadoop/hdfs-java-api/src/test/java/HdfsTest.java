@@ -144,7 +144,7 @@ public class HdfsTest {
     @Test
     public void copyFromLocalFile() throws Exception {
         // 如果指定的是目录，则会把目录及其中的文件都复制到指定目录下
-        Path src = new Path("D:\\BigData-Notes\\notes\\installation");
+        Path src = new Path("E:\\www\\shell\\BigData-Notes\\notes\\installation");
         Path dst = new Path("/hdfs-api/test/");
         fileSystem.copyFromLocalFile(src, dst);
     }
@@ -155,11 +155,11 @@ public class HdfsTest {
     @Test
     public void copyFromLocalBigFile() throws Exception {
 
-        File file = new File("D:\\kafka.tgz");
+        File file = new File("D:\\FTP\\Hadoop\\kafka_2.12-2.2.0.tgz");
         final float fileSize = file.length();
         InputStream in = new BufferedInputStream(new FileInputStream(file));
 
-        FSDataOutputStream out = fileSystem.create(new Path("/hdfs-api/test/kafka5.tgz"),
+        FSDataOutputStream out = fileSystem.create(new Path("/hdfs-api/test2/kafka_2.12-2.2.0.tgz"),
                 new Progressable() {
                     long fileCount = 0;
 
@@ -179,8 +179,8 @@ public class HdfsTest {
      */
     @Test
     public void copyToLocalFile() throws Exception {
-        Path src = new Path("/hdfs-api/test/kafka.tgz");
-        Path dst = new Path("D:\\app\\");
+        Path src = new Path("/hdfs-api/test2/kafka_2.12-2.2.0.tgz");
+        Path dst = new Path("E:\\");
         /*
          * 第一个参数控制下载完成后是否删除源文件,默认是true,即删除;
          * 最后一个参数表示是否将RawLocalFileSystem用作本地文件系统;
