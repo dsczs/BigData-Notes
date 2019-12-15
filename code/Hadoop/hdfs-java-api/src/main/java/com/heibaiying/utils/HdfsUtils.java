@@ -1,7 +1,14 @@
 package com.heibaiying.utils;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
+import org.apache.hadoop.fs.BlockLocation;
+import org.apache.hadoop.fs.FSDataInputStream;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileStatus;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.LocatedFileStatus;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.RemoteIterator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +23,7 @@ import java.net.URISyntaxException;
 public class HdfsUtils {
 
 
-    private static final String HDFS_PATH = "hdfs://192.168.0.107:8020";
+    private static final String HDFS_PATH = "hdfs://192.168.174.133:8020";
     private static final String HDFS_USER = "root";
     private static FileSystem fileSystem;
 

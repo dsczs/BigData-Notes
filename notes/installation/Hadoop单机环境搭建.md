@@ -65,7 +65,9 @@ ssh-keygen -t rsa
 
 ### 3.1 下载并解压
 
-下载 Hadoop 安装包，这里我下载的是 CDH 版本的，下载地址为：http://archive.cloudera.com/cdh5/cdh/5/
+下载 Hadoop 安装包，这里我下载的是 CDH 版本的，下载地址为：
+
+http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.15.2.tar.gz
 
 ```shell
 # 解压
@@ -103,7 +105,7 @@ export  PATH=${HADOOP_HOME}/bin:$PATH
 
 ```shell
 # JDK安装路径
-export  JAVA_HOME=/usr/java/jdk1.8.0_201/
+export JAVA_HOME=/usr/local/jdk1.8.0_111
 ```
 
 #### 2. core-site.xml
@@ -196,7 +198,6 @@ sudo systemctl stop firewalld.service
 方式二：查看 Web UI 界面，端口为 `50070`：
 
 <div align="center"> <img width="700px" src="../../pictures/hadoop安装验证.png"/> </div>
-
 
 ## 四、Hadoop(YARN)环境搭建
 
