@@ -30,7 +30,7 @@ import java.net.URISyntaxException;
  */
 public class HdfsTest {
 
-    private static final String HDFS_PATH = "hdfs://192.168.174.133:8020";
+    private static final String HDFS_PATH = "hdfs://192.168.174.137:8020";
     private static final String HDFS_USER = "root";
     private static FileSystem fileSystem;
 

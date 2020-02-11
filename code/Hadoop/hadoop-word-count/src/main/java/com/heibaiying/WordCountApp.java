@@ -20,17 +20,16 @@ public class WordCountApp {
 
 
     // 这里为了直观显示参数 使用了硬编码，实际开发中可以通过外部传参
-    private static final String HDFS_URL = "hdfs://192.168.0.107:8020";
+    private static final String HDFS_URL = "hdfs://192.168.174.133:8020";
     private static final String HADOOP_USER_NAME = "root";
 
     public static void main(String[] args) throws Exception {
 
-
         //  文件输入路径和输出路径由外部传参指定
-        if (args.length < 2) {
-            System.out.println("Input and output paths are necessary!");
-            return;
-        }
+//        if (args.length < 2) {
+//            System.out.println("Input and output paths are necessary!");
+//            return;
+//        }
 
         // 需要指明hadoop用户名，否则在HDFS上创建目录时可能会抛出权限不足的异常
         System.setProperty("HADOOP_USER_NAME", HADOOP_USER_NAME);
@@ -61,14 +60,14 @@ public class WordCountApp {
 
         // 如果输出目录已经存在，则必须先删除，否则重复运行程序时会抛出异常
         FileSystem fileSystem = FileSystem.get(new URI(HDFS_URL), configuration, HADOOP_USER_NAME);
-        Path outputPath = new Path(args[1]);
+        Path outputPath = new Path("/hdfs-api/testout");
         if (fileSystem.exists(outputPath)) {
             fileSystem.delete(outputPath, true);
         }
 
 
         // 设置作业输入文件和输出文件的路径
-        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileInputFormat.setInputPaths(job, new Path("/hdfs-api/test/a.txt"));
         FileOutputFormat.setOutputPath(job, outputPath);
 
         // 将作业提交到群集并等待它完成，参数设置为true代表打印显示对应的进度
